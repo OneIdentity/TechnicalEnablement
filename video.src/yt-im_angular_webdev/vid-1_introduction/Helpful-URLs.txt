@@ -1,0 +1,25 @@
+##############################################################
+#
+# CAUTION:
+#
+# Using code or command snippets from somewhere else needs
+# your attention. The snippets was used to produce this video
+# but there is no guaranty that this can't damage your system.
+# Please take this as a helper file and understand each 
+# command and its considerations first, before you run it.
+#
+##############################################################
+
+LC: 2022-05-20, by HRA
+
+########################################
+# Helpful URL's
+########################################
+
+### ==> Software
+	- https://code.visualstudio.com/ 
+	- https://nodejs.org/en/
+	- https://git-scm.com
+	- https://www.postman.com
+	- https://angular.io
+	- https://www.npmjs.com/

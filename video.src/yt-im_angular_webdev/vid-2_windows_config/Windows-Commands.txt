@@ -1,0 +1,85 @@
+##############################################################
+#
+# CAUTION:
+#
+# Using code or command snippets from somewhere else needs
+# your attention. The snippets was used to produce this video
+# but there is no guaranty that this can't damage your system.
+# Please take this as a helper file and understand each 
+# command and its considerations first, before you run it.
+#
+##############################################################
+
+LC: 2022-05-23, by HRA
+
+########################################
+# Windows Installation commands
+########################################
+
+### ==> Install Chocolatey (https://chocolatey.org)
+	# --> Start PowerShell as admin
+	Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+### ==> Install node.js and npm
+	choco install nodejs-lts -y
+	npm -v
+	npm install -g @angular/cli
+	ng --version
+
+### ==> Install Microsoft Visual Studio Code
+	choco install vscode -y
+
+
+### ==> Install Postman
+	choco install postman -y
+
+
+### ==> Install Git
+	choco install git -y
+	# --> May be a reboot is required!
+
+### ==> Create Angular development working directory and a repository
+	# --> Create Dev Directory
+	cd ~/documents/
+	md Angular-WebDev
+	
+	# --> Create a git repository
+	cd angular-webdev/
+	git init
+
+	# --> Configure Git
+	git config --global user.name "[your name]"
+	git config --global user.email "[your email address]"
+	# option use switch --local instead of --global to configure only the current repository
+
+
+	# --> Show the respository .git and a blank workspace
+	explorer /e,"$env:userprofile\documents\angular-webdev"
+
+
+### ==> Open code and install plugins
+	# --> Open code selecting the curent folder as working folder
+	code .
+	
+	# --> Add MS VS Code plugins
+		- Angular Language Service
+    - Angular Snippets
+    - NX Console
+    - HTML CSS Support
+    - CSS formatter
+	
+		or optional, the Developer suggestion
+		- Angular Essentials 
+		- GitLens
+		- Nx Console
+
+### ==> In VS Code, create and run a first Angular project
+	# --> Create a new project
+	ng new identity-management
+
+  # --> Commit the empty project
+	git commit -m “New Angular project”
+
+	# --> Start the new empty Angular project
+	cd .\identity-management
+	ng serve –open

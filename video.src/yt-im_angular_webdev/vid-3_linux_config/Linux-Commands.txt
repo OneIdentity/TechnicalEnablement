@@ -1,0 +1,119 @@
+##############################################################
+#
+# CAUTION:
+#
+# Using code or command snippets from somewhere else needs
+# your attention. The snippets was used to produce this video
+# but there is no guaranty that this can't damage your system.
+# Please take this as a helper file and understand each 
+# command and its considerations first, before you run it.
+#
+##############################################################
+
+LC: 2022-05-20, by HRA
+
+########################################
+# Linux Mint 20.3 Installation commands
+########################################
+
+### ==> Install node.js and npm
+	# --> Install command line tool for transferring data with URL syntax and according packages
+	sudo apt update
+	sudo apt install curl build-essential -y
+	
+	# --> select and install the right node.js version, recommended the current LTS (16.x)
+	curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+	sudo apt install nodejs -y
+
+	# --> Install Angular client tools
+	sudo npm install -g @angular/cli
+	
+	# --> Test the version node.js, node package manager, Angular
+	node --version
+	npm -v
+	ng --versiony
+
+
+### ==> Install Microsoft Visual Studio Code
+	# --> Instal wget, typically available
+	sudo apt update
+	sudo apt -y install wget
+	
+	# --> Install APT transport for downloading via the HTTP Secure protocol (HTTPS) 
+	sudo apt update
+	sudo apt install apt-transport-https
+	
+	# --> Get and update the package information
+	curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+	sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+	sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+	
+	# --> Test the package Information
+	cat  /etc/apt/sources.list.d/vscode.list
+	deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+	
+	# --> Install MS Visual Studio Code
+	sudo apt update	
+	sudo apt install code
+
+
+### ==> Install Postman
+	# --> Remove the lock for snap
+	sudo rm /etc/apt/preferences.d/nosnap.pref
+	
+	# --> Install SNAP
+	sudo apt update
+	sudo apt install snapd -y
+	
+	# --> Install Postman using snap
+	sudo snap install postman
+
+
+### ==> Install Git
+	sudo apt install git -y
+
+### ==> Create Angular development working directory and a repository
+	# --> Create Dev Directory
+	cd ~/Documents/
+	mkdir Angular-WebDev
+	
+	# --> Create a git repository
+	cd angular-webdev/
+	git init
+	
+	# --> Configure Git
+	git config --global user.name "[your name]"
+	git config --global user.email "[your email address]"
+	# option use switch --local instead of --global to configure only the current repository
+
+	# --> Show the respository .git and a blank workspace
+	ls -al
+
+
+### ==> Open code and install plugins
+	# --> Open code selecting the curent folder as working folder
+	code .
+	
+	# --> Add MS VS Code plugins
+		- Angular Language Service
+    - Angular Snippets
+    - NX Console
+    - HTML CSS Support
+    - CSS formatter
+
+		or optional, the Developer suggestion
+		- Angular Essentials 
+		- GitLens
+		- Nx Console
+	
+
+### ==> In VS Code, create and run a first Angular project
+	# --> Create a new project
+	ng new identity-management
+
+  # --> Commit the empty project
+	git commit -m “New Angular project”
+
+	# --> Start the new empty Angular project
+	cd ./identity-management
+	ng serve –open
