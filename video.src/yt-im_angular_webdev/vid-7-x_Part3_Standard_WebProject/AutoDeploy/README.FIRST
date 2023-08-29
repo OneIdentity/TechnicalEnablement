@@ -1,0 +1,48 @@
+******************************************************
+**   Atomization Sample for Identity Manager        **
+**   Angular Web Client Developers                  **
+******************************************************
+
+
+DISCLAIMER
+----------------------------
+This is a working sample from One Identity - Technical Enablement created as part of a
+product training and not part of any offcial released One Identity software.
+!!!!!
+  Using this text and the described solution is completelly on your own risk!
+  You are alowed to use, change and share this code as you like.
+!!!!!
+
+SOLUTION
+----------------------------
+.autodeploy 
+-> Folder structure top be used by the script
+
+.vscode/launch.json
+-> Sample file allow Angular Web Development and Powershell debugging in the same VSCODE project
+   You need to select the correct debugger during a debugger call (dropdown box in vscode).
+	 Please ensure the code fits to your needs.
+	 
+.vscode/tasks.json
+-> Implements two tasks in your tasks automation list. One tasks is for autodeployment, The second task
+   can be used to delete content from the ./imxweb/dist folder. Be carefull using this.
+	 
+./a_DeleteDistEntries.ps1
+-> Deletes content from the .autodeploy and the ./imxweb/dist folder. The script needs to be updated and 
+   carefully tested before using it.
+	 
+./a_DeployIMXClientContent.ps1
+-> Script to autodeploy content to a Identity Manager database using Softwareloadercmd.exe.
+   The script needs to be updated and carefully tested before using it.
+
+INSTALL:
+----------------------------
+1. Copy folder './autodeploy' in your Identity Manager Angular development root folder
+   (this is the parent folder of the './imxweb' folder).
+2. Copy the file .vscode/tasks.jason into your .vscode folder located in the same root folder
+   as described above.
+3. If you like to debug PowerShell content in your Angular project add the according section from
+   file 'launch.json' into your .vscode/launch.json.
+4. Copy the PowerShell files (*.ps1) into the folder where .vscode recedes.
+5. Check the code of the copied PowerShell scripts to ensure variables and functionality on your machine.
+6. Use Ctrl + Shift + b  to see the attached tasks
